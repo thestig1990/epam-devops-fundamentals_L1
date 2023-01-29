@@ -1,0 +1,11 @@
+---
+- name: Connection Testing
+  hosts: all
+  become: yes
+
+  tasks:
+
+  - name: Ping servers
+    ping:
+
+

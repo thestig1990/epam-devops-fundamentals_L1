@@ -1,0 +1,28 @@
+#-----Loops-----#
+---
+- name: Loop Playbook
+  hosts: AnsibleManagedNode-1
+  become: yes
+
+
+  tasks:
+
+  - name: Check Linux distro
+    debug:  msg="Hello {{ item }}"
+    with_items:
+     - "Frontend"
+     - ".Net"
+     -  "Java"
+
+
+  - name: Until example
+    shell:  echo -n A >> example.txt && cat example.txt
+    register: output
+    delay: 2
+    retries: 5
+    until: output.stdout.find("AAA") == false
+
+  - name: Print output
+    debug:
+      var: output.stdout
+

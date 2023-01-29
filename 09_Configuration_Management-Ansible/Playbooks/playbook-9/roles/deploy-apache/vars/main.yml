@@ -1,0 +1,3 @@
+---
+# vars file for deploy-apache
+destin_dir: /var/www/html

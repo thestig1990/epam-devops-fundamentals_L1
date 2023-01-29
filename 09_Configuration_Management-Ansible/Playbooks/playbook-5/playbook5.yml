@@ -1,0 +1,76 @@
+#-----Using blocks-----#
+---
+- name: Install Apache Web Server on Ubuntu and AMI Linux. Upload web page.
+  hosts: all
+  become: yes
+
+
+  vars:
+    source_file: index.html
+    destin_file: /var/www/html
+
+
+  tasks:
+
+  - name: Check Linux distro
+    debug:
+      var: ansible_os_family
+
+
+  - block:  # For Debian Family
+
+    - name: Install Apache Web Server on Debian Family
+      apt:
+        name: apache2
+        state: latest
+
+    - name: Copy index.html to target server
+      copy:
+        src: "{{ source_file }}"
+        dest: "{{ destin_file }}"
+        mode: 0555
+      notify: Restart Apache Debian
+
+    - name: Start Apache and enable it during boot
+      service:
+        name:  apache2
+        state:  started
+        enabled:  yes
+
+    when: ansible_os_family == "Debian"
+
+
+  - block:   # For RedHat Family
+
+    - name: Install Apache Web Server on RedHat Family
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Copy index.html to target server
+      copy:
+        src: "{{ source_file }}"
+        dest: "{{ destin_file }}"
+        mode: 0555
+      notify: Restart Apache RedHat
+
+    - name: Start Apache and enable it during boot
+      service:
+        name:  httpd
+        state:  started
+        enabled:  yes
+
+    when: ansible_os_family == "RedHat"
+
+
+  handlers:
+  - name: Restart Apache Debian
+    service:
+      name: apache2
+      state: restarted
+
+  - name: Restart Apache RedHat
+    service:
+      name: httpd
+      state: restarted
+

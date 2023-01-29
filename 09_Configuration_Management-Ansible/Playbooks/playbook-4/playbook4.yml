@@ -1,0 +1,59 @@
+
+---
+- name: Install Apache Web Server on Ubuntu22.04 and AMI Linux. Upload web page.
+  hosts: all
+  become: yes
+
+
+  vars:
+    source_file: index.html
+    destin_file: /var/www/html
+
+
+  tasks:
+
+  - name: Check Linux distro
+    debug:
+      var: ansible_os_family
+
+  - name: Install Apache Web Server on Debian Family
+    apt:
+      name: apache2
+      state: latest
+    when: ansible_os_family == "Debian"
+
+  - name: Install Apache Web Server on RedHat Family
+    yum:
+      name: httpd
+      state: latest
+    when: ansible_os_family == "RedHat"
+
+  - name: Copy index.html to target server
+    copy:
+      src: "{{ source_file }}"
+      dest: "{{ destin_file }}"
+      mode: 0555
+    #notify: Restart Apache
+
+  - name: Start Apache and enable it during boot Ubuntu
+    service:
+      name:  apache2
+      state:  started
+      enabled:  yes
+    when: ansible_os_family == "Debian"
+
+  - name: Start Apache and enable it during boot Amazon Linux
+    service:
+      name:  httpd
+      state:  started
+      enabled:  yes
+    when: ansible_os_family == "RedHat"
+
+
+  handlers:
+  - name: Restart Apache
+    service:
+      name: apache2
+      state: restarted
+
+

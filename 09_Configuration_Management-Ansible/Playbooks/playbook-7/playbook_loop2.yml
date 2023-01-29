@@ -1,0 +1,76 @@
+#-----Loops example-----#
+---
+- name: Install Apache Web Server on Ubuntu and AMI Linux. Upload web page.
+  hosts: all
+  become: yes
+
+
+  vars:
+    source_dir: ./MyWebSite
+    destin_dir: /var/www/html
+
+
+  tasks:
+
+  - name: Check Linux distro
+    debug:
+      var: ansible_os_family
+
+
+  - block:  # For Debian Family
+
+    - name: Install Apache Web Server on Debian Family
+      apt:
+        name: apache2
+        state: latest
+
+    - name: Start Apache and enable it during boot
+      service:
+        name:  apache2
+        state:  started
+        enabled:  yes
+
+    when: ansible_os_family == "Debian"
+
+
+  - block:   # For RedHat Family
+
+    - name: Install Apache Web Server on RedHat Family
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Start Apache and enable it during boot
+      service:
+        name:  httpd
+        state:  started
+        enabled:  yes
+
+    when: ansible_os_family == "RedHat"
+
+  - name: Copy dir "MyWebSite" to target server
+    copy:
+      src: "{{ source_dir }}/{{ item }}"
+      dest: "{{ destin_dir }}"
+      mode: 0555
+    loop:
+      - "index.html"
+      - "photo_for_site.jpg"
+    notify:
+      - Restart Apache RedHat
+      - Restart Apache Debian
+
+
+  handlers:
+  - name: Restart Apache Debian
+    service:
+      name: apache2
+      state: restarted
+    when: ansible_os_family == "Debian"
+
+  - name: Restart Apache RedHat
+    service:
+      name: httpd
+      state: restarted
+    when: ansible_os_family == "RedHat"
+

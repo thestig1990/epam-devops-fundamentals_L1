@@ -1,0 +1,10 @@
+
+[staging_servers]
+
+AnsibleManagedNode-1  ansible_host=3.71.18.221   ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/.ssh/ansible_key
+
+
+[production_servers]
+
+AnsibleManagedNode-2  ansible_host=3.121.162.144  ansible_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/.ssh/ansible_key
+

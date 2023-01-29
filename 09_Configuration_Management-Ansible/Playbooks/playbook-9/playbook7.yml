@@ -1,0 +1,13 @@
+#-----Roles example-----#
+---
+- name: Install Apache Web Server on Ubuntu and AMI Linux. Upload web page.
+  hosts: all
+  become: yes
+
+
+  vars:
+    source_dir: ./MyWebSite
+
+
+  roles:
+    - role: deploy-apache

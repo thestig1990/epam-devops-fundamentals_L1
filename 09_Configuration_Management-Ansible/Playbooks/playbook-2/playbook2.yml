@@ -1,0 +1,19 @@
+---
+- name: Connection Testing
+  hosts: all
+  become: yes
+
+  tasks:
+
+  - name: Install Apache Web Server
+    apt:
+      name: apache2
+      state: latest
+
+  - name: Start Apache and enable it during boot
+    service:
+      name:  apache2
+      state:  started
+      enabled:  yes
+
+
