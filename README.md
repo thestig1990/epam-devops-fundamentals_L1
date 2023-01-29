@@ -1,1 +1,1 @@
-# epam-devops-fundamentals_L1
+# EPAM_Cloud&DevOps_Fundamentals_Autumn_2022
