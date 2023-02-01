@@ -1,0 +1,10 @@
+commit a8d15c5ee78b6076da30410cb74722b7bf92ef9f
+tree 5c238f708797741428ab5f274344849ac13a1c9d
+parent 8b7b132967b365cab872a5ccee46a4336d3fed11
+author thestig1990 <yakymov1geka@gmail.com> 2022-12-18 14:04:07 +0200
+committer thestig1990 <yakymov1geka@gmail.com> 2022-12-18 14:04:07 +0200
+
+    update README.md file
+
+
+:100644 100644 6ff7d73656404736fbe71554038014c6ab2af79a 5cb5793692835fc6af26a5e69a6ba31ee2495726 M	README.md

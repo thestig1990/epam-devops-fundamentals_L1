@@ -1,0 +1,37 @@
+Started by user [8mha:////4EEHDTJfN2WEVqocADEi9IjC/RywtpZ9PNlYSWov2J/hAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building remotely on [8mha:////4I4ZxhsP6f8sfdhRHmUzj8/vv+0NFFml1KzUbl8TeZ69AAAAnR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAwOoBn6yfm5BaUlqUX6vpWO6al5JYYAW+1+P8cAAAA=[0mMyAgent1 (apache aws) in workspace /home/jenkins/workspace/DeployMyWebsite1
+The recommended git tool is: NONE
+using credential ssh-github-key
+ > git rev-parse --resolve-git-dir /home/jenkins/workspace/DeployMyWebsite1/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url git@github.com:thestig1990/mysite.git # timeout=10
+Fetching upstream changes from git@github.com:thestig1990/mysite.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.37.1'
+using GIT_SSH to set credentials ssh-github-key
+Verifying host key using known hosts file
+ > git fetch --tags --force --progress -- git@github.com:thestig1990/mysite.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 8b7b132967b365cab872a5ccee46a4336d3fed11 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 8b7b132967b365cab872a5ccee46a4336d3fed11 # timeout=10
+Commit message: "update README.md file"
+ > git rev-list --no-walk 8b7b132967b365cab872a5ccee46a4336d3fed11 # timeout=10
+[DeployMyWebsite1] $ /bin/sh -xe /tmp/jenkins10117766039886688038.sh
++ echo ---------start------------
+---------start------------
++ sleep 5
++ cp index.html README.md /home/ec2-user/programming/github/mysite
++ echo ---------finish-----------
+---------finish-----------
++ ls -la
+total 8
+drwxrwxr-x 3 ec2-user ec2-user   53 Nov 26 12:25 .
+drwxrwxr-x 4 ec2-user ec2-user   58 Nov 26 11:51 ..
+drwxrwxr-x 8 ec2-user ec2-user  162 Nov 26 13:39 .git
+-rw-rw-r-- 1 ec2-user ec2-user 2761 Nov 26 12:25 index.html
+-rw-rw-r-- 1 ec2-user ec2-user   42 Nov 26 12:25 README.md
++ echo ---------deploy-----------
+---------deploy-----------
+Finished: SUCCESS

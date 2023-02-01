@@ -1,0 +1,14 @@
+Started on Nov 25, 2022, 5:29:00 PM
+Using strategy: Default
+[poll] Last Built Revision: Revision 96af628f887fcc40a4c154fb5b5426f565966862 (refs/remotes/origin/main)
+The recommended git tool is: NONE
+using credential ssh-github-key
+ > git --version # timeout=10
+ > git --version # 'git version 2.37.1'
+using GIT_SSH to set credentials ssh-github-key
+Verifying host key using known hosts file
+ > git ls-remote -h -- git@github.com:thestig1990/mysite.git # timeout=10
+Found 1 remote heads on git@github.com:thestig1990/mysite.git
+[poll] Latest remote head revision on refs/heads/main is: 8b7b132967b365cab872a5ccee46a4336d3fed11
+Done. Took 1 sec
+Changes found

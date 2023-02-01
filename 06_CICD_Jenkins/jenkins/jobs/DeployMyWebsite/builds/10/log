@@ -1,0 +1,41 @@
+Started by user [8mha:////4EEHDTJfN2WEVqocADEi9IjC/RywtpZ9PNlYSWov2J/hAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building on the built-in node in workspace /var/lib/jenkins/workspace/DeployMyWebsite
+The recommended git tool is: NONE
+using credential ssh-github-key
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/DeployMyWebsite/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url git@github.com:thestig1990/mysite.git # timeout=10
+Fetching upstream changes from git@github.com:thestig1990/mysite.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.37.1'
+using GIT_SSH to set credentials ssh-github-key
+Verifying host key using known hosts file
+ > git fetch --tags --force --progress -- git@github.com:thestig1990/mysite.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 8b7b132967b365cab872a5ccee46a4336d3fed11 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 8b7b132967b365cab872a5ccee46a4336d3fed11 # timeout=10
+Commit message: "update README.md file"
+ > git rev-list --no-walk 8b7b132967b365cab872a5ccee46a4336d3fed11 # timeout=10
+[DeployMyWebsite] $ /bin/sh -xe /tmp/jenkins7374767378189463372.sh
++ echo ---------start------------
+---------start------------
++ sleep 5
++ echo ---------finish-----------
+---------finish-----------
++ ls -la
+total 8
+drwxr-xr-x 3 jenkins jenkins   53 Nov 25 17:29 .
+drwxr-xr-x 5 jenkins jenkins   75 Nov 22 20:25 ..
+drwxr-xr-x 8 jenkins jenkins  162 Nov 26 12:38 .git
+-rw-r--r-- 1 jenkins jenkins 2761 Nov 22 20:55 index.html
+-rw-r--r-- 1 jenkins jenkins   42 Nov 25 17:29 README.md
++ echo ---------deploy-----------
+---------deploy-----------
+SSH: Connecting from host [ip-172-31-14-46.eu-central-1.compute.internal]
+SSH: Connecting with configuration [MyWebServer] ...
+SSH: EXEC: completed after 200 ms
+SSH: Disconnecting configuration [MyWebServer] ...
+SSH: Transferred 2 file(s)
+Finished: SUCCESS

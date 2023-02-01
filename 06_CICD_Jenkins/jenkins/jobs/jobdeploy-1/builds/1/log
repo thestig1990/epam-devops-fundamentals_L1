@@ -1,0 +1,17 @@
+Started by user [8mha:////4EEHDTJfN2WEVqocADEi9IjC/RywtpZ9PNlYSWov2J/hAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/jobdeploy-1
+[jobdeploy-1] $ /bin/sh -xe /tmp/jenkins11096958758374553923.sh
++ echo start
+start
++ cat
++ echo finish
+finish
++ ls -la
+total 4
+drwxr-xr-x 2 jenkins jenkins  24 Nov 21 20:30 .
+drwxr-xr-x 3 jenkins jenkins  25 Nov 21 20:30 ..
+-rw-r--r-- 1 jenkins jenkins 167 Nov 21 20:30 index.html
++ echo ---------deploy-----------
+---------deploy-----------
+Finished: SUCCESS
